@@ -75,8 +75,8 @@ const NewsFeed = () => {
         ListEmptyComponent={renderListEmpty}
         refreshControl={
           <RefreshControl
-            colors={[theme.backgroundColor]}
-            tintColor={theme.loaderColor}
+            colors={[theme.accentColor]}
+            tintColor={theme.accentColor}
             refreshing={isRefreshing}
             onRefresh={() => dispatch(updateLimit(maxDataPerSet))}
           />

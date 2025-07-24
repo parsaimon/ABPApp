@@ -13,7 +13,7 @@ import { horizontalScale, verticalScale } from './src/utils/Metrices';
 import { logo } from './src/utils/FileMaster';
 import { useSelector } from 'react-redux';
 import Snack from './src/components/Snack';
-import { secureStorageMultiSet } from './src/utils/SecureSturageUtility';
+import { secureStorageSetValue } from './src/utils/SecureSturageUtility';
 import { ACCESS_TOKEN } from '@env';
 
 const App = () => {
@@ -33,12 +33,12 @@ const App = () => {
   useEffect(() => {
     setTimeout(() => {
       getDataFromSecureStorage();
-      setIsInitialized(true);
     }, 3000);
   }, []);
 
   const getDataFromSecureStorage = async () => {
     await secureStorageSetValue('token', ACCESS_TOKEN);
+    setIsInitialized(true);
   };
 
   return isInitialized != undefined ? (
