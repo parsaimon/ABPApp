@@ -6,6 +6,7 @@ import {
   Image,
   ViewStyle,
   StyleSheet,
+  Linking,
 } from 'react-native';
 import React from 'react';
 import {
@@ -17,16 +18,26 @@ import { useTheme } from './ThemeProvider';
 import { banner, Menu, User } from '../utils/FileMaster';
 import CircularBtn from './CircularBtn';
 import { colors } from '../utils/colors';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { showSnack } from '../redux/features/snackSlice';
+import Constants from '../utils/Constants';
 
 const Header: React.FC = () => {
   const dispatch = useDispatch();
   const { theme } = useTheme();
   const styles = CustomStyle();
+  const { landingUrl } = useSelector((state: any) => state.feed);
+  const handleBannerPress = () => {
+    if (!landingUrl) {
+      Linking.openURL(Constants.FALLBACK_URL);
+    } else {
+      Linking.openURL(landingUrl);
+    }
+  };
+
   return (
     <View style={styles.headerContainer as ViewStyle}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={handleBannerPress}>
         <Image
           source={banner}
           resizeMode="contain"

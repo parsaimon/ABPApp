@@ -27,6 +27,7 @@ export const getNews = createAsyncThunk(
       dispatch(setIsLoading(false));
       dispatch(setIsRefreshing(false));
       if (response.status === 200) {
+        dispatch(updateLandingUrl(response.data.data.landing_url));
         dispatch(updateFeedList([...response.data.data.data]));
         dispatch(updateSectionHeading(response.data.data.display_name));
       } else {
@@ -60,6 +61,7 @@ const initialState = {
   sectionHeading: '',
   limit: 5,
   maxDataPerSet: 5,
+  landingUrl: '',
 };
 const feedSlice = createSlice({
   name: 'feed',
@@ -67,6 +69,9 @@ const feedSlice = createSlice({
   reducers: {
     updateFeedList: (state, action) => {
       state.feedList = action.payload;
+    },
+    updateLandingUrl: (state, action) => {
+      state.landingUrl = action.payload;
     },
     updateLimit: (state, action) => {
       state.limit = action.payload;
@@ -85,6 +90,10 @@ const feedSlice = createSlice({
       });
   },
 });
-export const { updateFeedList, updateSectionHeading, updateLimit } =
-  feedSlice.actions;
+export const {
+  updateFeedList,
+  updateSectionHeading,
+  updateLimit,
+  updateLandingUrl,
+} = feedSlice.actions;
 export default feedSlice.reducer;

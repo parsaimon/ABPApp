@@ -7,4 +7,5 @@ export default {
   APP_NAME: 'Anandabazar.com',
   ERROR_MESSAGE: 'Unable to connect to server, Please try again later.',
   TIMEOUT_ERROR_MESSAGE: 'Request timeout',
+  FALLBACK_URL: 'https://www.anandabazar.com/',
 };
