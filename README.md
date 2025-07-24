@@ -1,97 +1,124 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 📱 ABPApp
 
-# Getting Started
+ABPApp is a mobile news feed application built with React Native. It features a modular architecture, secure storage, Redux Toolkit for state management, and Axios for API communication.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+## 📦 Tech Stack
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- **React Native**: `0.80.1`
+- **React**: `19.1.0`
+- **Redux Toolkit** & **React Redux**
+- **React Navigation** (Native Stack)
+- **Axios** for API requests
+- **Secure Storage** via `rn-secure-storage`
+- **Environment Config** using `react-native-dotenv`
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+---
 
-```sh
-# Using npm
-npm start
+## 🗂️ Project Structure
 
-# OR using Yarn
-yarn start
+```
+src/
+├── API/config         # Axios config and endpoint definitions
+├── assets/common      # Static images (e.g., logo, banners)
+├── components         # Reusable UI components
+├── redux              # Redux store and slices
+├── screens            # App screens (e.g., NewsFeed)
+├── utils              # Utilities (constants, metrics, storage)
+└── Nav.jsx            # App navigation setup
 ```
 
-## Step 2: Build and run your app
+---
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## 🔧 Environment Variables
 
-### Android
+Add a `.env` file in the root:
 
-```sh
-# Using npm
+> Use `react-native-dotenv` to securely load env vars.
+
+---
+
+## 🚀 Getting Started
+
+### 1. Install Dependencies
+
+```bash
+npm install
+```
+
+### 2. Run on Android
+
+```bash
 npm run android
-
-# OR using Yarn
-yarn android
 ```
 
-### iOS
+### 3. Run on iOS
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+```bash
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+### 4. Start Metro Bundler
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+```bash
+npm start
+```
 
-## Step 3: Modify your app
+---
 
-Now that you have successfully run the app, let's make changes!
+## 🧪 Testing
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+Run unit tests with:
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+```bash
+npm test
+```
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+Test runner: **Jest**  
+Renderer: **react-test-renderer**
 
-## Congratulations! :tada:
+---
 
-You've successfully run and modified your React Native App. :partying_face:
+## 🧹 Linting
 
-### Now what?
+```bash
+npm run lint
+```
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+ESLint config: `@react-native/eslint-config`  
+Code formatter: **Prettier**
 
-# Troubleshooting
+---
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## 📱 Key Features
 
-# Learn More
+- News feed via Redux state (`feedSlice`)
+- Centralized API config (`API.js`, `urls.js`)
+- Theming and safe area handling
+- Reusable UI components (e.g., `NewsCard`, `Snack`)
+- Responsive design utilities (`Metrices.ts`)
+- Secure token handling (`SecureSturageUtility.js`)
 
-To learn more about React Native, take a look at the following resources:
+---
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## 📸 Assets
+
+Located in `src/assets/common/`:
+
+- `banner.png`
+- `logo.png`
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 🙋‍♂️ Author
+
+**Partha Sarathi Mondal**
+
+For issues or contributions, feel free to open an issue or pull request.
